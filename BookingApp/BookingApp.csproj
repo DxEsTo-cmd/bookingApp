@@ -1,0 +1,212 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Moq" Version="4.10.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="4.0.1" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="18.1.0.46" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\app\models\form-tests\**" />
+    <Compile Remove="ClientApp\src\app\services\service-tests\**" />
+    <Compile Remove="ClientApp\src\app\site\booking\**" />
+    <Compile Remove="Migrations\**" />
+    <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\app\models\form-tests\**" />
+    <Content Remove="ClientApp\src\app\services\service-tests\**" />
+    <Content Remove="ClientApp\src\app\site\booking\**" />
+    <Content Remove="Migrations\**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="ClientApp\src\app\models\form-tests\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\services\service-tests\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\site\booking\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="ClientApp\src\app\models\form-tests\**" />
+    <None Remove="ClientApp\src\app\services\service-tests\**" />
+    <None Remove="ClientApp\src\app\site\booking\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\admin\bookings\bookings.admin.component.ts" />
+    <None Remove="ClientApp\src\app\admin\rules\rules.component.ts" />
+    <None Remove="ClientApp\src\app\admin\user\user-create.component.html" />
+    <None Remove="ClientApp\src\app\admin\user\user-create.cpmponent.ts" />
+    <None Remove="ClientApp\src\app\admin\user\user-details.component.ts" />
+    <None Remove="ClientApp\src\app\admin\user\user-edit.component.ts" />
+    <None Remove="ClientApp\src\app\admin\user\user-list.component.ts" />
+    <None Remove="ClientApp\src\app\admin\user\user-read.component.ts" />
+    <None Remove="ClientApp\src\app\cabinet\user-change-password\user-change-password.component.ts" />
+    <None Remove="ClientApp\src\app\admin\stats\stats-bookings.component.ts" />
+    <None Remove="ClientApp\src\app\admin\stats\stats-resource.component.ts" />
+    <None Remove="ClientApp\src\app\admin\stats\stats-resources.component.ts" />
+    <None Remove="ClientApp\src\app\admin\stats\stats-users.component.ts" />
+    <None Remove="ClientApp\src\app\globals.ts" />
+    <None Remove="ClientApp\src\app\models\admin-register.ts" />
+    <None Remove="ClientApp\src\app\models\auth-login.ts" />
+    <None Remove="ClientApp\src\app\models\breadcrumb.ts" />
+    <None Remove="ClientApp\src\app\models\folder-form.model.ts" />
+    <None Remove="ClientApp\src\app\models\folder.ts" />
+    <None Remove="ClientApp\src\app\models\page.ts" />
+    <None Remove="ClientApp\src\app\models\jwt-token.ts" />
+    <None Remove="ClientApp\src\app\models\resource-time-window.ts" />
+    <None Remove="ClientApp\src\app\models\resource.ts" />
+    <None Remove="ClientApp\src\app\models\rule.ts" />
+    <None Remove="ClientApp\src\app\models\stats-booking.ts" />
+    <None Remove="ClientApp\src\app\models\stats-resource-brief.ts" />
+    <None Remove="ClientApp\src\app\models\stats-resource.ts" />
+    <None Remove="ClientApp\src\app\models\stats-users.ts" />
+    <None Remove="ClientApp\src\app\models\tree-entry.ts" />
+    <None Remove="ClientApp\src\app\models\tree-node.ts" />
+    <None Remove="ClientApp\src\app\models\resource.ts" />
+    <None Remove="ClientApp\src\app\models\tree-entry.ts" />
+    <None Remove="ClientApp\src\app\models\tree-node.ts" />
+    <None Remove="ClientApp\src\app\models\user-new-password.ts" />
+    <None Remove="ClientApp\src\app\models\user-page.ts" />
+    <None Remove="ClientApp\src\app\models\user-register.ts" />
+    <None Remove="ClientApp\src\app\models\user-roles.ts" />
+    <None Remove="ClientApp\src\app\models\user-update.ts" />
+    <None Remove="ClientApp\src\app\services\development.service.ts" />
+    <None Remove="ClientApp\src\app\services\folder.service.ts" />
+    <None Remove="ClientApp\src\app\services\logger.service.ts" />
+    <None Remove="ClientApp\src\app\services\refresh.service.ts" />
+    <None Remove="ClientApp\src\app\services\resource.service.ts" />
+    <None Remove="ClientApp\src\app\services\rule.service.ts" />
+    <None Remove="ClientApp\src\app\services\stats.service.ts" />
+    <None Remove="ClientApp\src\app\services\token.interceptor.ts" />
+    <None Remove="ClientApp\src\app\site\breadcrumbs\breadcrumbs.component.ts" />
+    <None Remove="ClientApp\src\app\site\header\header.component.ts" />
+    <None Remove="Data\StoredProcedures\BookingsSingleOccupancy.sql" />
+    <None Remove="Data\StoredProcedures\Booking\Edit.sql" />
+    <None Remove="Data\StoredProcedures\Booking\Terminate.sql" />
+    <None Remove="Data\StoredProcedures\Folder\IsParentValid.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\StoredProcedures\Booking\Terminate.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\StoredProcedures\Booking\Create.sql" />
+    <EmbeddedResource Include="Data\StoredProcedures\Booking\Edit.sql" />
+    <EmbeddedResource Include="Data\StoredProcedures\Booking\IsRangeAvailable.sql" />
+    <EmbeddedResource Include="Data\StoredProcedures\Booking\OccupancyByResource.sql" />
+    <EmbeddedResource Include="Data\StoredProcedures\Folder\IsParentValid.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\tests\components\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\admin\bookings\bookings.admin.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\admin\rules\rules.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\admin\user\user-create.component.html" />
+    <TypeScriptCompile Include="ClientApp\src\app\admin\user\user-create.cpmponent.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\admin\user\user-details.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\admin\user\user-edit.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\admin\user\user-list.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\admin\user\user-read.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cabinet\user-change-password\user-change-password.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\admin\stats\stats-resource.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\admin\stats\stats-resources.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\admin\stats\stats-bookings.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\admin\stats\stats-users.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\globals.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\admin-register.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\auth-login.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\stats-booking.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\folder-form.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\jwt-token.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\page.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\resource-time-window.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\breadcrumb.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\resource.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\rule.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\stats-resource-brief.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\stats-resource.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\stats-users.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\tree-entry.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\tree-node.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\folder.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\user-new-password.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\user-page.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\user-register.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\user-roles.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\user-update.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\stats.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\resource.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\resource.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\folder.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\logger.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\development.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\rule.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\token.interceptor.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\site\breadcrumbs\breadcrumbs.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\site\header\header.component.ts" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

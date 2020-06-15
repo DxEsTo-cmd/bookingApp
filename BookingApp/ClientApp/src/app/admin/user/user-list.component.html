@@ -1,0 +1,58 @@
+<div *ngIf="loaded">
+
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th style="width:33%">Пошта</th>
+        <th>Адмін</th>
+        <th>Інформація</th>
+        <th>Ідентифікатор</th>
+        <th>Бронювання</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="user-item" *ngFor="let user of userPage.items; let i = index" >
+
+        <td class="text-muted" style="transform: rotate(0);">
+          {{user.email}}
+          <a [routerLink]="['/admin/users', user.id]" class="stretched-link"></a>
+        </td>
+
+        <td style="transform: rotate(0);">
+          <div [hidden]="rolesMap[user.id]" class="spinner-border spinner-border-sm text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <i *ngIf="rolesMap[user.id] == 'Admin'" class="fas fa-star" style="color:goldenrod" title="Administrator"></i>
+          <a [routerLink]="['/admin/users', user.id]" class="stretched-link"></a>
+        </td>
+
+        <td class="d-flex justify-content-start" style="transform: rotate(0);">
+
+          <a [routerLink]="['/admin/users', user.id]" class="stretched-link mr-2">{{user.userName}}</a>
+
+          <span class="badge badge-warning mx-1" *ngIf="user.approvalStatus == null">Новий</span>
+          <span class="badge badge-danger mx-1" *ngIf="user.approvalStatus == false">Відмінений</span>
+          <span class="badge badge-danger mx-1" *ngIf="user.isBlocked">Заблокований</span>
+
+        </td>
+
+        <td class="text-muted text-nowrap" style="transform: rotate(0);">
+          {{user.id}}
+          <a [routerLink]="['/admin/users', user.id]" class="stretched-link"></a>
+        </td>
+
+        <td style="transform: rotate(0);">
+          <a class="stretched-link" title="User's bookings" [routerLink]="['/admin', 'users', user.id, 'bookings']">
+            <i class="far fa-calendar-alt fa-lg"></i>
+          </a>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li class="page-item page-link" *ngFor="let p of userPage.paging.arrayTotalPages; let i=index" (click)="getUserPages(i+1,10)">{{i+1}}</li>
+    </ul>
+  </nav>
+</div>

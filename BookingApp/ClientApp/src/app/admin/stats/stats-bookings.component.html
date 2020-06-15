@@ -1,0 +1,67 @@
+<h3 class="title">Статистика бронювання</h3>
+<div class="form-group">
+  <div class="row">
+    <div class="col-md">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="actionsTypeSelect">Тип:</label>
+        </div>
+        <select class="custom-select" id="actionsTypeSelect" [(ngModel)]="actionsTypeSelect">
+          <option value="creations">Ствоерння</option>
+          <option value="cancellations">Відміна</option>
+          <option value="completions">Завершення</option>
+          <option value="terminations">Перервано</option>
+        </select>
+      </div>      
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="fromDate">Від:</label>
+      <input type="date" id="fromDate" [(ngModel)]="fromDateString" />
+    </div>
+    <div class="col-md-6">
+      <label for="toDate">До:</label>
+      <input type="date" id="toDate" [(ngModel)]="toDateString" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="intervalSelect">Інтервал:</label>
+        </div>
+        <select class="custom-select" id="actionsTypeSelect" [(ngModel)]="intervalSelect">
+          <option value="month">Місяць</option>
+          <option value="day">День</option>
+          <option value="hour">Година</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <button class="btn btn-primary btn-block" (click)="loadStats()">Загрузити статистику</button>
+    </div>
+  </div>
+</div>
+<div class="float-right">
+  <span>Завантажити статистику</span>
+  <img (click)="downloadFile()" class="btn btn-primary" src="../../../assets/img/download.svg">
+</div>
+<div style="display: block;" class="chart">
+  <canvas baseChart
+          [datasets]="labelMFL"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [chartType]="ChartType"></canvas>
+</div>
+
+<div *ngIf="bookingStats">
+  <p>Bookings {{bookingStats.type}} from {{fromDateString}} to {{toDateString}}, {{bookingStats.interval}} intervals:</p>  
+  
+    <ol>
+      <li *ngFor="let item of bookingsWithKeys">{{item.key}} - {{item.value}}</li>
+    </ol>
+  
+</div>

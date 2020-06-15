@@ -1,0 +1,33 @@
+<h2 class="text-center">Вітаємо, {{userInfo.username}}!</h2>
+
+<div class="card-deck my-4" >
+
+  <div class="card">
+    <div class="card-body">
+      <i class="far fa-address-card"></i>
+      <h5 class="card-title">Персональна інформація</h5>
+      <p class="card-text">Управління профілем. Зміна пролю та імені.</p>
+    </div>
+    <div class="card-footer bg-transparent">
+      <a routerLink="/cabinet/user/{{userInfo.userId}}/edit" class="btn btn-primary m-1">Змінити ім'я</a>
+      <a routerLink="/cabinet/user/{{userInfo.userId}}/change-password" class="btn btn-primary m-1">Змінити пароль</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <i class="far fa-calendar-alt"></i>
+      <h5 class="card-title">Мої бронювання</h5>
+      <p class="card-text">
+        Перегляд та управління бронюваннями.
+        Час, статус, опис, відмінити бронювання.
+      </p>
+    </div>
+    <div class="card-footer bg-transparent">
+      <a routerLink="/cabinet/bookings" class="btn btn-primary m-1">Перегляд та управління</a>
+    </div>
+  </div>
+
+</div>
+
+

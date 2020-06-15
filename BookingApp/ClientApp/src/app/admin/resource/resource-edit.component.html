@@ -1,0 +1,90 @@
+<form [formGroup]="resourceForm" (ngSubmit)="onSubmit()" *ngIf="model && resourceForm">
+  <div class="errors">
+    <p class="alert alert-danger" [hidden]="apiError == undefined">API error {{apiError}}</p>
+    <p class="alert alert-danger" [hidden]="!resourceForm.controls['title'].errors || resourceForm.controls['title'].pristine">Please keep length of 3 to 64 characters.</p>
+    <p class="alert alert-danger" [hidden]="!resourceForm.controls['description'].errors">Please keep description length less that 512 characters.</p>
+    <p class="alert alert-danger" [hidden]="!resourceForm.controls['price'].errors">Please keep price value upper than 1.</p>
+
+    <div id="no-effective-changes-warning" class="alert alert-warning alert-dismissible fade show" role="alert" hidden>
+      <strong>Watch out!</strong> You haven't made any effective changes.
+      <button type="button" class="close" (click)="warningControl(false)">
+        <span>&times;</span>
+      </button>
+    </div>
+  </div>
+  <div>
+    Title:<br />
+    <input type="text" formControlName="title" class="form-control" minlength="3" maxlength="64" required />
+
+  </div>
+  <br />
+
+  <div>
+    Description:<br />
+    <textarea formControlName="description" class="form-control" maxlength="512"></textarea>
+
+  </div>
+  <br />
+
+  <div>
+    Rule:<br />
+    <select formControlName="ruleId" class="form-control" required>
+      <option *ngFor="let rule of rules" [value]="rule.id">{{rule.title}}{{rule.isActive ? "" : " (inactive)"}}</option>
+    </select>
+  </div>
+  <br />
+
+  <div>
+    Price:<br />
+    <input type="number" placeholder="Per one minute" formControlName="price" class="form-control" minlength="3" maxlength="64" required />
+  </div>
+
+  <br />
+
+  <div>
+    Folder:<br />
+    <select formControlName="folderId" class="form-control" required>
+      <option *ngFor="let folder of folders" [value]="folder.id">{{folder.title}}{{folder.isActive ? "" : " (inactive)"}}</option>
+    </select>
+  </div>
+  <br />
+
+  <div>
+    <label for="active" class="radio-inline">
+      Active
+      <input id="active" type="radio" formControlName="isActive" value="true" />
+    </label>
+    <label for="inactive" class="radio-inline">
+      Inactive
+      <input id="inactive" type="radio" formControlName="isActive" value="false" />
+    </label>
+  </div>
+
+  <agm-map 
+    [latitude]='latitude' 
+    [longitude]='longitude' 
+    (mapClick)="mapClicked($event)">
+      <agm-marker 
+        *ngFor="let m of markers; let i = index"
+        (markerClick)="clickedMarker(m.label, i)"
+        [latitude]="m.lat"
+        [longitude]="m.lng"
+        [label]="m.label"
+        [markerDraggable]="true">
+      </agm-marker>
+  </agm-map>
+
+
+  <app-upload
+      [MaxCountImage] = "5"
+      [InputImages] =  "this.images"
+      (imageForUpload) = "setImages($event)">
+  </app-upload>
+
+
+  <div>
+    <button type="submit" class="btn btn-primary" style="width:200px;" [disabled]="!resourceForm.valid || resourceForm.pristine">Post</button>
+    <input *ngIf="updateMode" class="btn btn-danger" style="float:right" type="button" value="Delete this resource" (click)="delete()" />
+  </div>
+
+</form>

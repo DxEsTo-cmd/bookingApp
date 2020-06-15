@@ -1,0 +1,22 @@
+<span *ngFor="let item of items">
+  <div *ngIf="item.ready == false" (click)="file.click()" class="choosePhoto"></div>
+  <div [ngStyle]="{'background-image': 'url('+ item.imageUrl + ')'}" *ngIf="item.ready == true" class="deletePhoto">
+    <span (click)="DeletePhoto(item)" class="deleteButton"></span>
+  </div>
+  <input type="file" #file placeholder="Choose file" (change)="UploadPhoto(file.files,item)" style="display:none;">
+</span>
+
+<!-- <div class="row" style="margin-bottom:15px;">
+  <div class="col-md-3">
+    <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
+    <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
+  </div>
+  <div class="col-md-4">
+    <span class="upload" *ngIf="progress > 0">
+      {{progress}}%
+    </span>
+    <span class="upload" *ngIf="message">
+      {{message}}
+    </span>
+  </div>
+</div>   -->

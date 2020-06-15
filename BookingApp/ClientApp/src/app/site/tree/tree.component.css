@@ -1,0 +1,61 @@
+.entry {
+  height: 50px;
+  font-size: 1.2rem;
+}
+
+.inactive {
+  color: gray;
+  background-color: ghostwhite;
+}
+
+
+.entry > div {
+  padding: 12px;
+}
+
+.entry:hover > div, .inactive:hover {
+  background-color: #eee;
+}
+
+span.nesting > span {
+  display: inline-block;
+  width: 30px;
+}
+
+
+
+.start i {
+  color: Gainsboro;
+}
+
+.entry > .control {
+  visibility: hidden;
+}
+
+.entry:hover > .control {
+  visibility:visible;
+}
+
+
+
+.progress {
+  width: 80px;
+  height: 30px;
+  background-color: darkseagreen;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: inset 0 3px 4px rgba(0,0,0,.24);
+}
+
+.progress-bar {
+  background-color: indianred;
+  box-shadow: inset 0 3px 4px rgba(0,0,0,.24), 2px 0 2px rgba(0,0,0,.24);
+  height:120%;
+}
+
+@media(max-width:360px) {
+  .progress {
+    display: none;
+  }
+}
+

@@ -1,0 +1,66 @@
+<div *ngIf="resource">
+
+  <a *ngIf="authService.isAdmin" title="Edit resource" [routerLink]="['/admin/resources', resource.id, 'edit']"
+     class="btn btn-primary mt-3 d-inline-block float-right">
+    Редагувати ресурс
+  </a>
+
+  <div class="title-container" [ngStyle]="{'background-image': 'url('+ resource.image[0] + ')'}">
+    <h1 class="display-4 m-0 p-0">
+      {{ resource.title }}
+      <span class="text-muted h5 font-weight-light" *ngIf="resource.isActive != true">
+       (inactive)
+      </span>
+    </h1>
+  
+    <p>{{ resource.description }}</p>
+  </div>
+ 
+</div>
+
+<div class="rules accordion alert alert-secondary p-0" id="accordionRule" style="background-color:#f8f8f8">
+
+  <button *ngIf="resource" class="btn dropdown-toggle w-100" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+    <span class="d-inline-block text-left" style="width: 95%">Правила бронювання для цього ресурсу</span>
+  </button>
+
+  <div id="collapseOne" class="show p-2" aria-labelledby="headingOne" data-parent="#accordionRule">
+    <div *ngIf="resource">
+      <div *ngIf="authService.isAdmin" class="float-right">
+        <a [routerLink]="['/admin/rules', resource.ruleId ]" class="btn btn-primary">Деталі</a>
+      </div>
+      <app-rule [ruleId]="resource.ruleId" class="pt-2"></app-rule>
+    </div>
+  </div>
+</div>
+
+<div class="images">
+  <a *ngFor="let item of resource?.image" href="{{item}}" target="_blank">
+    <div class="image-container">
+        <img class="image" src="{{item}}">
+    </div>
+  </a>
+</div>
+
+<agm-map 
+  [latitude]='latitude' 
+  [longitude]='longitude'>
+  <agm-marker 
+      *ngFor="let m of markers; let i = index"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [markerDraggable]="false"
+      (dragEnd)="markerDragEnd(m, $event)">
+   </agm-marker>
+</agm-map>
+
+<div class="bookings">
+    <h2 class="h2 font-weight-light">Бронювання</h2>
+    <app-bookings mode="res" [resourceId] = "id"></app-bookings>
+</div>
+
+<div class="chat-circle default-color">
+  <a href="#" (click)="goToChat()">
+    <img class="send-image" src="../../../assets/img/send-button.png">
+  </a>
+</div>

@@ -1,0 +1,19 @@
+<div *ngFor="let folder of allEntries" class="flat-main-block">
+  <div *ngIf="folder.isFolder" class="global-font flat-block" >
+      <span class="flat-name default-border-bottom">{{folder.title}}</span>
+      <p-carousel class="flat-carousel" [value]="getResourcesByFolderId(folder.id)" [numVisible]="4" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+        <ng-template let-resource pTemplate="resource">
+            <div class="resource-details">
+                <div routerLink="resources/{{resource.id}}" [ngStyle]="{'background-image': 'url('+ resource.image[0] + ')'}" class="p-grid p-nogutter resource">  
+                  <div class="p-col-12 default-white-color main-text">
+                    <div class="card-title">{{resource.title}}</div>
+                    <div class="card-subtitle">{{resource.price}}грн/хв</div>
+                  </div>
+                </div>             
+            </div>
+        </ng-template>
+      </p-carousel>
+  </div>
+</div>
+
+<ngx-spinner></ngx-spinner>

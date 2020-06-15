@@ -1,0 +1,30 @@
+.flat-block {
+    font-size: 2em;
+}
+
+.flat-name {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.resource{
+    background-position: center;
+    background-size: cover;
+    height: 14em;
+    padding: 20% 0 0 0;
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: darken;
+    color: white;
+}
+
+.ui-carousel-item {
+    margin-right: 10px;
+}
+
+.main-text {
+    text-align: center;
+}
+
+.card-title {
+    font-size: larger;
+}

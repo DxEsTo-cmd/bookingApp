@@ -1,0 +1,110 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '../node_modules/primeng/resources/themes/nova-light/theme.css';
+@import '../node_modules/primeng/resources/primeng.min.css';
+@import '../node_modules/primeicons/primeicons.css';
+
+snack-bar-container.success{
+    background-color:#4CAF50  !important;
+    color: #fff;
+}
+
+snack-bar-container.delete{
+    background-color:#FF5252  !important;
+    color: #fff;
+}
+
+snack-bar-container.submit{
+    background-color:#FF9800  !important;
+    color: #fff;
+}
+snack-bar-container.notification simple-snack-bar{
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
+/* Colors */
+
+.default-color {
+    background-color:  rgb(0, 122, 255);
+    color: #fff;
+}
+
+.default-white-color {
+    color: #fff;
+}
+
+.default-border-top {
+    border-top: 1px solid rgb(0, 122, 255);
+}
+
+.default-border-bottom {
+    border-bottom: 1px solid rgb(0, 122, 255);
+}
+
+.default-border {
+    border: 1px solid #007aff;
+}
+
+/* Fonts */
+
+.global-font {
+    font: normal;
+}
+
+
+
+
+/* Carousel */
+
+.carousel-demo .ui-carousel .ui-carousel-content .ui-carousel-item .resource-details > .p-grid {
+    border: 1px solid #b3c2ca;
+    border-radius: 3px;
+    margin: 0.3em;
+    text-align: center;
+    padding: 2em 0 2.25em 0;
+}
+.carousel-demo .ui-carousel .ui-carousel-content .ui-carousel-item .car-data .car-title {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 24px;
+}
+.carousel-demo .ui-carousel .ui-carousel-content .ui-carousel-item .car-data .car-subtitle {
+    margin: 0.25em 0 2em 0;
+}
+.carousel-demo .ui-carousel .ui-carousel-content .ui-carousel-item .car-data button {
+    margin-left: 0.5em;
+}
+.carousel-demo .ui-carousel .ui-carousel-content .ui-carousel-item .car-data button:first-child {
+    margin-left: 0;
+}
+.carousel-demo .ui-carousel.custom-carousel .ui-carousel-dot-icon {
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 50%;
+}
+.carousel-demo .ui-carousel.ui-carousel-horizontal .ui-carousel-content .ui-carousel-item.ui-carousel-item-start .resource-details > .p-grid {
+    margin-left: 0.6em;
+}
+.carousel-demo .ui-carousel.ui-carousel-horizontal .ui-carousel-content .ui-carousel-item.ui-carousel-item-end .resource-details > .p-grid {
+    margin-right: 0.6em;
+}
+.ui-carousel-item  {
+    margin-right: 10px;
+}
+
+/* .ui-carousel {
+    height: 15em !important;
+}
+
+.ui-carousel-content  {
+    height: 15em !important;
+}
+
+.ui-carousel-container {
+    height: 15em !important;
+}
+
+.ui-carousel-items-container {
+    height: 14em !important;
+} */

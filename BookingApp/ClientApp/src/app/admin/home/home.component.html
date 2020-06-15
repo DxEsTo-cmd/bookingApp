@@ -1,0 +1,74 @@
+<h2 class="text-center">Панель адміністратора</h2>
+
+<div class="card-deck my-4">
+  <div class="card">
+    <div class="card-body">
+      <i class="fas fa-users"></i>
+      <h5 class="card-title">Користувачі</h5>
+      <p class="card-text">
+        Управління цілою систмою: блокування, підтвердження, зміна.
+      </p>
+    </div>
+    <div class="card-footer bg-transparent">
+      <a routerLink="/admin/users" class="btn btn-primary m-1">Управління користувачами</a>
+      <a routerLink="/admin/users/create" class="btn btn-primary m-1">Створити адміністратора</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <i class="far fa-calendar-alt"></i>
+      <h5 class="card-title">Всі бронювання</h5>
+      <p class="card-text">
+        Перегляд і Управління бронюваннями всієї системи.
+        Час, статус, опис.
+      </p>
+    </div>
+    <div class="card-footer bg-transparent">
+      <a routerLink="/admin/bookings" class="btn btn-primary m-1">Перегляд та управління</a>
+    </div>
+  </div>
+</div>
+
+<div class="card-deck my-4">
+  <div class="card">
+    <div class="card-body">
+      <i class="fas fa-clipboard-list"></i>
+      <h5 class="card-title">Правила</h5>
+      <p class="card-text">
+        Перегляд та управління правилами для ресурсів. Зміна кроку бронювання, сервісний час, ліміт та інше.
+      </p>
+    </div>
+    <div class="card-footer bg-transparent">
+      <a routerLink="/admin/rules" class="btn btn-primary m-1">Управління правилами</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <i class="far fa-chart-bar"></i>
+      <h5 class="card-title">Статистика</h5>
+      <p class="card-text">
+        Різноманітна статистика для бронювання, ресурсів та користувачів.
+      </p>
+    </div>
+    <div class="card-footer bg-transparent">
+        <a routerLink="/admin/stats/bookings" class="btn btn-primary m-1">Бронювання</a>
+        <a routerLink="/admin/stats/resources" class="btn btn-primary m-1">Ресурси</a>
+        <a routerLink="/admin/stats/users" class="btn btn-primary m-1">Користувачі</a>
+    </div>
+  </div>
+</div>
+
+<div class="card-deck my-4">
+  <div class="card">
+    <div class="card-body">
+      <i class="far fa-chart-bar"></i>
+      <h5 class="card-title">Чат</h5>
+      <p class="card-text">
+        Спілкування з клієнтами
+      </p>
+    </div>
+    <div class="card-footer bg-transparent">
+        <a routerLink="/admin/chat/{{id}}" class="btn btn-primary m-1">Список чатів</a>
+    </div>
+  </div>
+</div>

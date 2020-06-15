@@ -1,0 +1,15 @@
+<ul *ngIf="Rule && isAdmin">
+  <li><p>Правило: {{Rule.title}}</p></li>
+  <li><p>Мінімальний час: {{showTime(Rule.minTime)}}, максимальний: {{showTime(Rule.maxTime)}}.</p></li>
+  <li *ngIf="Rule.serviceTime !=0"><p >Сервісний час: {{showTime(Rule.serviceTime)}}.</p></li>
+  <li *ngIf="Rule.stepTime !=0"><p >Крок для бронювання: {{showTime(Rule.stepTime)}}.</p></li>
+  <li *ngIf="Rule.reuseTimeout !=0"><p >Час повторного використання: {{showTime(Rule.reuseTimeout)}}.</p></li>
+  <li *ngIf="Rule.preOrderTimeLimit !=0"><p >Час до початку бронювання: {{showTime(Rule.preOrderTimeLimit)}}.</p></li>
+</ul>
+
+<p *ngIf="Rule && !isAdmin">
+  <span>Мінімальний час для бронювання цього ресурсу {{showTime(Rule.minTime)}}, максимальний - {{showTime(Rule.maxTime)}}.</span>
+  <span *ngIf="Rule.serviceTime !=0">Також, цей ресурс потребує сервісного часу {{showTime(Rule.serviceTime)}}.</span>
+  <span *ngIf="Rule.reuseTimeout !=0">Цей ресурс має обмеження, ви повинні очікувати {{showTime(Rule.reuseTimeout)}} до того як зможете забронювати ще раз.</span>
+  <span *ngIf="Rule.preOrderTimeLimit !=0">Зауважте ви можете почати використовувати цей ресурс за {{showTime(Rule.preOrderTimeLimit)}} максимально.</span>
+</p>

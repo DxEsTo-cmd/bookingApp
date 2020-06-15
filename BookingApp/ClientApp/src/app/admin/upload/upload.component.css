@@ -1,0 +1,42 @@
+.upload{
+    font-weight:bold;
+    color:#28a745;
+    margin-left: 15px;
+    line-height: 36px;
+}
+
+.choosePhoto {
+    background-image: url(../../../assets/img/photo-upload.png);
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.choosePhoto:hover {
+    background-image: url(../../../assets/img/photo-upload-hover.png);
+}
+
+.deletePhoto {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.deleteButton {
+    position: absolute;
+    right: -3px;
+    top: -5px;
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../../../assets/img/delete-bin.png);
+}

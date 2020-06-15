@@ -1,0 +1,5 @@
+<div *ngFor="let chat of chats" class="chat">
+    {{chat.userName}} - {{chat.resourceName}}
+    <a href="#" (click)="goToChat(chat.resourceId)">Перейти в чат
+    </a>
+</div>
